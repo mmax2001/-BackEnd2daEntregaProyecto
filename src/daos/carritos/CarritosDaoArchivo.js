@@ -63,3 +63,5 @@ class CarritosDaoArchivo extends ContenedorArchivo{
 
     }
 }
+
+export default CarritosDaoArchivo;

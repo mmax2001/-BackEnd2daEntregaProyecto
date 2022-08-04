@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import productModel from "./Models/product.js";
+import { config } from "../config/config.js";
 
 class ContenedorMongoDb{
     constructor(URL, modelDB) {
@@ -19,7 +20,7 @@ class ContenedorMongoDb{
         }
     }
 
-    async addProduct(newProduct){
+    async save(newProduct){
         console.log("ADD");
         try {
             let lastID;
@@ -57,7 +58,7 @@ class ContenedorMongoDb{
         }
     }
 
-    async update(ID,productProperty){
+    async update(productProperty,ID){
         console.log("UPDATE");
         let userUpdate = await this.modelDB.updateOne(
             {id: ID},
@@ -81,7 +82,7 @@ export default ContenedorMongoDb;
 /*                TEST CLASS               */
 /* --------------------------------------- */
 
-const miConexionMongo=new ContenedorMongoDb("mongodb://localhost:27017/ecommerce",productModel)
+const miConexionMongo=new ContenedorMongoDb(config.UrlMongoDB,productModel)
 const prod1={
         nombre: "Escuadra",
         descripcion: "Esc 45 grados",
