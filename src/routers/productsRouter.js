@@ -1,7 +1,7 @@
+import { productosDao} from "../daos/index.js";
 import { Router } from "express";
-import adminControl from "../middlewares/adminControl";
-import ERRORS from "../utils/errors";
-import { productosDao } from "../daos";
+import adminControl from "../middlewares/adminControl.js";
+import ERRORS from "../utils/errors.js";
 
 const routerProducts=Router()
 const productsApi=productosDao

@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import productModel from "./Models/product.js";
-import { config } from "../config/config.js";
+import carritoModel from "./Models/cart.js";
+import config from "../config/config.js";
 
 class ContenedorMongoDb{
     constructor(URL, modelDB) {
@@ -95,7 +96,7 @@ const prod1={
     };
 
 await miConexionMongo.connectDB();
-await miConexionMongo.addProduct(prod1);
+await miConexionMongo.save(prod1);
 // await miConexionMongo.getLastID();
 // await miConexionMongo.update(6,{nombre: 'Sacapuntas'});
 // await miConexionMongo.delete(1);

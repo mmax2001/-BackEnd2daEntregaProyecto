@@ -7,7 +7,7 @@ const storeCollection='carts';
 
 const carritoSchema = new Schema({
   timestamp: { type: Date, required: true },
-  productos: { type: [productSchema], required: true },
+  productos: { type: [productModel.productSchema], required: true },
 });
 
 const carritoModel=model(storeCollection,carritoSchema)

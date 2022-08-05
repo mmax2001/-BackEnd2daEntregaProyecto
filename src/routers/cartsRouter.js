@@ -1,6 +1,7 @@
 import { Router } from "express";
-import ERRORS from "../utils/errors";
-import { productosDao,carritosDao } from "../daos";
+import { productosDao,carritosDao } from "../daos/index.js";
+import ERRORS from "../utils/errors.js";
+
 
 const routerCarts=Router()
 const productsApi=productosDao
@@ -108,4 +109,4 @@ routerCarts.delete('/carrito/:id/productos/:id_prod',async (req, res)=> {
     
 });
 
-export {rou}
+export default routerCarts;
