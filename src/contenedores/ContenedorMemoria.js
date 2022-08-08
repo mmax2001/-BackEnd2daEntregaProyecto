@@ -10,7 +10,8 @@ constructor(){
         return this.elementList;
     }
 
-    getByID(ID){
+    getById(ID){
+        console.log("ENTRO EN CONTENEDOR");
         if(this.elementList.length>0){             
                 const elementToFind=this.elementList.filter(element=>element.id===ID);             
                 if(elementToFind){
@@ -23,7 +24,7 @@ constructor(){
         return null 
     }
 
-    deleteByID(ID){
+    deleteById(ID){
         const indexOfID=this.elementList.findIndex(element=>{return element.id==ID});
             console.log(indexOfID);
             if(indexOfID!=-1) {
@@ -38,6 +39,7 @@ constructor(){
     }
 
     save(newElement){
+        console.log("ENTRO EN CONTENEDOR");
         let newID;
         let time=new Date().toLocaleString()
         if (this.elementList.length === 0) {
@@ -96,7 +98,7 @@ export default ContenedorMemoria;
 
 // prodTest.elementList=prod;
 // console.log(prodTest.getAll())
-// console.log(prodTest.getByID(2))
+// console.log(prodTest.getById(2))
 // let testObject2={
 //     title:"Pincel",
 //     price:123.45,

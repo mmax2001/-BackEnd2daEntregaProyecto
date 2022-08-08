@@ -12,8 +12,8 @@ const config = {
     PORT: process.env.PORT || DEV_PORT,
     routes: {
       base: '/api',
-      products: '/api/productos',
-      carts: '/api/carrito',
+      products: '/api/',
+      carts: '/api/',
     },
   },
   selectedDB: process.env.TYPE_DB,

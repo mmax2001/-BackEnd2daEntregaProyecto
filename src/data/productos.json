@@ -1,0 +1,42 @@
+[
+   {
+      "nombre": "Globo Terráqueo",
+      "precio": 345.67,
+      "codigo": 110,
+      "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+      "timeStamp": "5/8/2022 01:50:00",
+      "id": 1
+   },
+   {
+      "nombre": "Calculadora",
+      "precio": 234.56,
+      "codigo": 120,
+      "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+      "timeStamp": "5/8/2022 01:50:00",
+      "id": 2
+   },
+   {
+      "nombre": "Pincel",
+      "precio": 123.45,
+      "codigo": 115,
+      "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+      "timeStamp": "5/8/2022 01:50:00",
+      "id": 3
+   },
+   {
+      "nombre": "Calculadora Graficadora",
+      "precio": 334.56,
+      "codigo": 125,
+      "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+      "id": 4,
+      "timeStamp": "7/8/2022 22:07:36"
+   },
+   {
+      "nombre": "Calculadora Cientifica",
+      "precio": 455.56,
+      "codigo": 135,
+      "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+      "id": 5,
+      "timeStamp": "7/8/2022 22:17:15"
+   }
+]

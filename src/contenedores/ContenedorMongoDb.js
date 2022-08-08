@@ -83,20 +83,20 @@ export default ContenedorMongoDb;
 /*                TEST CLASS               */
 /* --------------------------------------- */
 
-const miConexionMongo=new ContenedorMongoDb(config.UrlMongoDB,productModel)
-const prod1={
-        nombre: "Escuadra",
-        descripcion: "Esc 45 grados",
-        codigo: 123,
-        fotoURL: "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-        precio: 123.45,
-        stock: 20,
-        id: 111,
-        timeStamp:new Date().toLocaleString()
-    };
+// const miConexionMongo=new ContenedorMongoDb(config.UrlMongoDB,productModel)
+// const prod1={
+//         nombre: "Escuadra",
+//         descripcion: "Esc 45 grados",
+//         codigo: 123,
+//         fotoURL: "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+//         precio: 123.45,
+//         stock: 20,
+//         id: 111,
+//         timeStamp:new Date().toLocaleString()
+//     };
 
-await miConexionMongo.connectDB();
-await miConexionMongo.save(prod1);
+// await miConexionMongo.connectDB();
+// await miConexionMongo.save(prod1);
 // await miConexionMongo.getLastID();
 // await miConexionMongo.update(6,{nombre: 'Sacapuntas'});
 // await miConexionMongo.delete(1);

@@ -3,11 +3,11 @@
 import * as fs from 'fs/promises';
 //Declaro la clase Contenedor con los metodos requeridos
 
-
 class ContenedorArchivo{
     constructor(fileName){
         this.rutaArchivo=`./data/${fileName}.json`;
         this.elementos=[];
+        this.leerArchivoAsync();
     }
 
     async leerArchivoAsync() {
@@ -17,7 +17,7 @@ class ContenedorArchivo{
             this.elementos=contenido;
             return this.elementos;
         }
-        catch(err){
+        catch(error){
            const arrayDeContenido = []
            await fs.writeFile(this.rutaArchivo, JSON.stringify(arrayDeContenido))
            return arrayDeContenido           
@@ -26,36 +26,36 @@ class ContenedorArchivo{
 
     async save(newObject){
 
-        let time=new Date().toLocaleString()
-        try {
-            await this.leerArchivoAsync();
-            console.log(this.rutaArchivo)
-            let newID;
-            let arrayDeContenido=[];
-            if (this.elementos == '[]') {
-                newID=1; //sin usar uuidV4
-                const objToAdd = {...newObject,id:newID,timeStamp:time};  
-                arrayDeContenido.push(objToAdd);  
-            } else {
-                arrayDeContenido=JSON.parse(this.elementos||'{}');
-                console.log("Esto tiene el JSON", arrayDeContenido)
-                const elementoIndex = arrayDeContenido.findIndex((elemento) => elemento.codigo == newObject.codigo);
-                console.log("EL NRO ES",elementoIndex)
-                if (elementoIndex === -1 || newObject.length==0) { 
-                    newID=(arrayDeContenido[arrayDeContenido.length-1].id)+1;
-                    const objToAdd = {...newObject,id:newID,timeStamp:time};  
-                    arrayDeContenido.push(objToAdd);                      
-                }else{
-                    arrayDeContenido[elementoIndex] = {...arrayDeContenido[elementoIndex],...newObject,timeStamp:time}; //copie el elemento en esa posicion y le paso la nueva info
-                }
-            }                    
-            await fs.writeFile(this.rutaArchivo, JSON.stringify(arrayDeContenido,null,3)) //null para no reemplazar el contenido y 3 por el espacio entre lineas
-            return newID;                
-        }
-        catch (error) {
-            console.log(error)
-            return error
-        }       
+        // let time=new Date().toLocaleString()
+        // try {
+        //     await this.leerArchivoAsync();
+        //     console.log(this.rutaArchivo)
+        //     let newID;
+        //     let arrayDeContenido=[];
+        //     if (this.elementos == '[]') {
+        //         newID=1; //sin usar uuidV4
+        //         const objToAdd = {...newObject,id:newID,timeStamp:time};  
+        //         arrayDeContenido.push(objToAdd);  
+        //     } else {
+        //         arrayDeContenido=JSON.parse(this.elementos||'{}');
+        //         console.log("Esto tiene el JSON", arrayDeContenido)
+        //         const elementoIndex = arrayDeContenido.findIndex((elemento) => elemento.codigo == newObject.codigo);
+        //         console.log("EL NRO ES",elementoIndex)
+        //         if (elementoIndex === -1 || newObject.length==0) { 
+        //             newID=(arrayDeContenido[arrayDeContenido.length-1].id)+1;
+        //             const objToAdd = {...newObject,id:newID,timeStamp:time};  
+        //             arrayDeContenido.push(objToAdd);                      
+        //         }else{
+        //             arrayDeContenido[elementoIndex] = {...arrayDeContenido[elementoIndex],...newObject,timeStamp:time}; //copie el elemento en esa posicion y le paso la nueva info
+        //         }
+        //     }                    
+        //     await fs.writeFile(this.rutaArchivo, JSON.stringify(arrayDeContenido,null,3)) //null para no reemplazar el contenido y 3 por el espacio entre lineas
+        //     return newID;                
+        // }
+        // catch (error) {
+        //     console.log(error)
+        //     return error
+        // }       
     }
 
     async update(newProd,ID){

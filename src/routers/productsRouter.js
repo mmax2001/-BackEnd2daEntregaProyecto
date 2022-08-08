@@ -54,11 +54,13 @@ routerProducts.get('/productos/:id', async (req, res) => {
 routerProducts.post('/productos',adminControl,async (req, res)=> {
     try{
         let producto = req.body;
-        //console.log(producto)
+        console.log(producto)        
         if(!producto.nombre==producto.codigo==''){
-            await productsApi.save(producto);
+            console.log("ENTRO")
+            newID=await productsApi.save(producto);
+            res.json({ result: 'Se guardo el producto con el siguiente ID',newID})
         }
-        //res.json({ result: 'Se guardo el producto con el siguiente ID', producto,ID:lastID})
+        res.send(newID);
         res.redirect('/');
         
     } catch (error) {
@@ -74,10 +76,12 @@ routerProducts.put('/productos/:id',adminControl,async (req, res)=> {
         let id = parseInt(req.params.id)
         let producto = req.body;
         const productToFind=await productsApi.getById(id)
-        //console.log("EL PRODUCTO A ACTUALIZAR ES",productToFind)
-        //console.log("ID de producto a actualizar",productToFind[0].id)
+        console.log("SE Actualizar con estos datos",producto)
+        console.log("EL PRODUCTO A ACTUALIZAR ES",productToFind)
+        console.log("ID de producto a actualizar",productToFind[0].id)
         if(productToFind.length==1){
-            await productsApi.save(producto)
+            //await productsApi.update(producto[0],productToFind[0].id)
+            await productsApi.save(producto);
             res.json({ result: 'se actualizo correctamente',producto: await productsApi.getById(id) })        
         }else{
             res.json({error: 'producto no encontrado'}); 

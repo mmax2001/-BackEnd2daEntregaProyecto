@@ -1,9 +1,9 @@
-const adminPass = true;
+const adminPass = true; //false para no permitir ingresar productos
 
 const adminControl = (req,res,next) => {
     if (!adminPass){
-        ruta=req.baseUrl
-        metodo=req.method
+        let ruta=req.originalUrl //con req.baseUrl obtengo solo /api
+        let metodo=req.method
         res.send(errorMessage(ruta,metodo))
     } else {
         next()

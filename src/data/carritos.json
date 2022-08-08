@@ -1,0 +1,41 @@
+[
+   {
+      "productos": [],
+      "id": 1,
+      "timeStamp": "7/8/2022 02:06:16"
+   },
+   {
+      "productos": [],
+      "id": 2,
+      "timeStamp": "7/8/2022 02:26:12"
+   },
+   {
+      "productos": [
+         {
+            "nombre": "Calculadora",
+            "precio": 234.56,
+            "codigo": 120,
+            "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+            "timeStamp": "7/8/2022 21:19:25",
+            "id": 2
+         }
+      ],
+      "id": 3,
+      "timeStamp": "7/8/2022 02:26:13"
+   },
+   {
+      "productos": [],
+      "id": 4,
+      "timeStamp": "7/8/2022 02:26:14"
+   },
+   {
+      "productos": [],
+      "id": 5,
+      "timeStamp": "7/8/2022 02:26:15"
+   },
+   {
+      "productos": [],
+      "id": 7,
+      "timeStamp": "7/8/2022 13:57:28"
+   }
+]

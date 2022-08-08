@@ -15,10 +15,10 @@ const cartsApi=carritosDao
 routerCarts.post('/carrito',async (req, res)=> {
     try{
         //const carritoInicial=[]
+        //let carritoInicial=new Carrito()
         const carritoInicial = {
             productos: [],
         };
-        //let carritoInicial=new Carrito()
         const newCartID=await cartsApi.save(carritoInicial)
         res.json({result:`Se creo exitosamente el carrito con id ${newCartID}`})
     } catch (error) {
@@ -35,7 +35,7 @@ routerCarts.delete('/carrito/:id',async (req, res)=> {
         const carritoID = await cartsApi.deleteById(id);
         if(carritoID){
             let contenido=await cartsApi.getAll()
-            //vacio el archivo para borra los caracteres []
+            //vacio el archivo para borrar los caracteres []
             //los cuales no permiten crear nuevo contenido
             //cuando se comienza desde cero
             if(contenido.length==0){                
@@ -44,7 +44,7 @@ routerCarts.delete('/carrito/:id',async (req, res)=> {
             res.json({result:`Se borro exitosamente el carrito con id ${id}`})
         }
         else{
-            if(producto == null){
+            if(carritoID == null){
                 res.json({error: 'Carrito no encontrado'})
             }
         }        
@@ -61,8 +61,8 @@ routerCarts.get('/carrito/:id/productos',async (req, res)=> {
     try{
         let id = parseInt(req.params.id)
         const listado=await cartsApi.getById(id);
-        //res.send({result:'Este es el contenido del carrito con ID:',id,listado})        
-        res.send({result:`Estos son los productos del carrito con ID:#${id} y productos:${listado}`})
+        res.send({result:'Este es el contenido del carrito con ID:',id,listado})        
+        //res.send({result:`Estos son los productos del carrito con ID:#${id} y productos:${listado}`})
     } catch (error) {
         res.send(error)
     }
@@ -77,7 +77,7 @@ routerCarts.post('/carrito/:id/productos',async (req, res)=> {
         const productoPOST = req.body;
         console.log("EL PARAMETRO ID DE CARRITO ES",id)
         console.log("EL PARAMETRO DE ID DEL PRODUCTO ES",productoPOST.id)
-        const producto = await ContenedorProductos.getById(productoPOST.id);
+        const producto = await productsApi.getById(productoPOST.id);
         console.log("ESTE ES EL PRODUCTO A AGREGAR",producto[0])
         // let cart = await cartsApi.getById(id);
         // console.log("ESTO TIENE CART",cart[0].productos)
@@ -101,7 +101,7 @@ routerCarts.delete('/carrito/:id/productos/:id_prod',async (req, res)=> {
         if(prodDelete!=null){
             res.json({result:`Se borro exitosamente del carrito con ID:${id},el producto con id:${id_prod}`})     
         }else{
-            res.json({result:`No se encontro el producto buscado con ese id: #${id_prod}`})
+            res.json({result:`No se encontro el producto buscado con id: #${id_prod}`})
         }
     } catch (error) {
         res.send(error)
