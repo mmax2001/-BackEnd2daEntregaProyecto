@@ -1,4 +1,4 @@
-import config from "../config/config.js";
+import {config} from "../config/config.js";
 import ProductosDaoMemoria from "./productos/ProductosDaoMemoria.js";
 import CarritosDaoMemoria from "./carritos/CarritosDaoMemoria.js";
 import ProductosDaoArchivo from "./productos/ProductosDaoArchivo.js";
@@ -28,3 +28,6 @@ switch (config.selectedDB) {
 }
 
 export { productosDao, carritosDao };
+
+console.log("ESTO TIENE",productosDao);
+console.log("BASE",config.selectedDB)

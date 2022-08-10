@@ -1,5 +1,5 @@
 import express from 'express';
-import config from './config/config.js';
+import {config} from './config/config.js';
 import { routerProducts,routerCarts } from './routers/indexRouters.js';
 import { ExpressHandlebars } from 'express-handlebars';
 

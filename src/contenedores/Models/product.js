@@ -11,7 +11,7 @@ const productSchema = new Schema({
     fotoURL: {type:String,require:true},
     precio: {type:Number,require:true},
     stock: {type:String,require:true},
-    id: {type:Number,require:true},
+    cantidad: {type:Number,require:true},
     timeStamp: {type:Date,require:true},
 });
 

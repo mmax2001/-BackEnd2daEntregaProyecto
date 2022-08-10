@@ -58,9 +58,9 @@ routerProducts.post('/productos',adminControl,async (req, res)=> {
         if(!producto.nombre==producto.codigo==''){
             console.log("ENTRO")
             newID=await productsApi.save(producto);
-            res.json({ result: 'Se guardo el producto con el siguiente ID',newID})
+            res.json({ result: 'Se guardo el producto con el siguiente ID', producto,ID:newID})
         }
-        res.send(newID);
+        res.send(newID)
         res.redirect('/');
         
     } catch (error) {

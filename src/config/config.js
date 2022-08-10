@@ -20,4 +20,4 @@ const config = {
   UrlMongoDB: process.env.URL,
 };
 
-export default config;
+export {config};
